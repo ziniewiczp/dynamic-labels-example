@@ -1,15 +1,15 @@
 ({
-	handleInit : function(component) {
-		let inputLabels = component.get("v.labelsString").split(",");
+    handleInit : function(component) {
+        let inputLabels = component.get("v.labelsString").split(",");
         let actualLabels = [];
         
         inputLabels.forEach(function(label) {
-            actualLabels.push($A.getReference("$Label.c." + label)); 
+            actualLabels.push($A.getReference("$Label.c." + label));
         });
         
         component.set("v.labelsArray", actualLabels);
         component.set("v.labelsListener", actualLabels[0]);
-	},
+    },
     
     handleLabelsListenerChange : function(component) {
         let currentLabels = component.get("v.labelsArray");
@@ -23,7 +23,7 @@
             if(component.get("v.tempLabel") === "") {
                 
                 // some label wasn't loaded yet, listen for this one to change
-               	component.set("v.labelsListener", label);
+                component.set("v.labelsListener", label);
                 return;
             }
         });

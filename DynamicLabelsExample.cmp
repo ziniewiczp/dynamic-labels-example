@@ -1,0 +1,13 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="labelsString" type="String" description="Used to store values passed in Community Builder"/>
+    <aura:attribute name="labelsArray" type="String[]" description="Used to store actual label values"/>
+    <aura:attribute name="labelsListener" type="String" description="Used to listen for a label value to be loaded from server"/>
+    <aura:attribute name="tempLabel" type="String" description="Used to check if label value has been loaded from server"/>
+    <aura:handler   name="change" value="v.labelsListener" action="{!c.handleLabelsListenerChange}" />
+    
+    <aura:handler name="init" action="{!c.handleInit}" value="{!this}" />
+    
+    <aura:iteration items="{!v.labelsArray}" var="label">
+        <p>{!label}</p>
+    </aura:iteration>
+</aura:component>
